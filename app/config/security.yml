@@ -1,0 +1,51 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    #encoders:
+        #FOS\UserBundle\Model\UserInterface:
+        #    algorithm: bcrypt
+        #    cost: 10
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: ~
+        oauth:
+            id: hwi_oauth.user.provider
+        #fos_user:
+        #    id: fos_user.user_provider.username
+
+    access_control:
+        - { path: ^/news/(news_new|news_edit|(\d+\/edit)), roles: IS_AUTHENTICATED_FULLY }
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+        secured_area:
+            pattern: ^/
+            anonymous: ~
+            #form_login:
+            #    provider: fos_user
+            #    csrf_provider: form.csrf_provider
+            #logout: true
+            oauth:
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider
+                    #service: hwi_oauth.user.provider.fosub_bridge
+                login_path: hwi_oauth_connect
+                failure_path: hwi_oauth_connect
+                resource_owners:
+                    qq: check_qq
+
+
