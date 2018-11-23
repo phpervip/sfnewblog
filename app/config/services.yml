@@ -12,3 +12,12 @@ services:
     class: Twig_Extensions_Extension_Text
     tags:
     - name: twig.extension
+
+  app.form.type.reg:
+    class: AppBundle\Form\Type\RegType
+    argument:
+      - %fos_user.model.user.class%
+    tags:
+      -
+        name: form.type
+        alias: app_reg
