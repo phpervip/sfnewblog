@@ -3,11 +3,14 @@ app:
     type: annotation
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix: /connect
+    prefix: /oauth/redirect
 hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix: /login
-check_qq:
-    pattern: /login/check-qq
+    prefix: /oauth/login
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /oauth/connect
+qq_login:
+    pattern: /oauth/login/check-qq
 #fos_user:
 #    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
