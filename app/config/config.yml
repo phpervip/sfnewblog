@@ -103,14 +103,13 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
 
-jms_di_extra:
-    locations:
-        all_bundles: false
-        bundles: [JMSTranslationBundle]
-
 jms_translation:
     configs:
         app:
             dirs: ['%kernel.root_dir%/Resources', '%kernel.root_dir%/../src']
             output_dir: '%kernel.root_dir%/Resources/translations'
 
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [JMSTranslationBundle]

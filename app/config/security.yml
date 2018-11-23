@@ -39,9 +39,9 @@ security:
         secured_area:
             pattern: ^/
             anonymous: ~
-            #form_login:
-            #    provider: fos_user
-            #    csrf_provider: form.csrf_provider
+#            form_login:
+#                provider: fos_user
+#                csrf_provider: form.csrf_provider
             logout: true
             oauth:
                 oauth_user_provider:
